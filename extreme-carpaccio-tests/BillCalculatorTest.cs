@@ -32,6 +32,22 @@ namespace extreme_carpaccio_tests
 
 
 
-        } 
+        }
+
+        [Test]
+        public void BillRienTestBasique()
+        {
+            BillCalculator billCalculator = new BillCalculator();
+            Order order = new Order()
+            {
+                Country = "FR",
+                Prices = new Decimal[] { 1, 1 },
+                Quantities = new[] { 1, 2 },
+                Reduction = "STANDARD"
+            };
+
+
+            Assert.That(billCalculator.Calculate(order), Is.EqualTo(null));
+        }
     }
 }

@@ -10,13 +10,14 @@ namespace xCarpaccio.client
     {
         public Bill Calculate(Order order)
         {
-            Country country = Country.InitCountry(order.Country);
-
-            return _calculate(country, order); ;
+            Country country = Country.InitCountry(order.Country, order);
+            if (country != null) return _calculate(country, order);
+             return null;
         }
 
         private Bill _calculate(Country country, Order order)
         {
+
 
             if (validOrder(order))
             {

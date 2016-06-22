@@ -10,19 +10,23 @@ namespace xCarpaccio.client
     {
         public Decimal CalculateReduction(Decimal totalDecimal)
         {
-            if(totalDecimal <= 1000)
+            if (totalDecimal <= 1000)
+            {
+                return (Decimal) 0;
+            }
+            if(totalDecimal <= 5000)
             {
                 return (Decimal) 0.03;
             }
-            if (totalDecimal <= 5000)
+            if (totalDecimal <= 7000)
             {
                 return (Decimal)0.05;
             }
-            if (totalDecimal <= 7000)
+            if (totalDecimal <= 10000)
             {
                 return (Decimal)0.07;
             }
-            if (totalDecimal <= 10000)
+            if (totalDecimal <= 50000)
             {
                 return (Decimal)0.10;
             }
