@@ -5,12 +5,12 @@
 
     public class Program
     {
-        static void Main(string[] args)
+        static void Main(String[] args)
         {
-            var uri =
+            Uri uri =
                 new Uri("http://localhost:8090");
 
-            using (var host = new NancyHost(uri))
+            using (NancyHost host = new NancyHost(uri))
             {
                 host.Start();
 

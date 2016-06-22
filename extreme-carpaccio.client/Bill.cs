@@ -1,7 +1,10 @@
-﻿namespace xCarpaccio.client
+﻿using System;
+
+namespace xCarpaccio.client
 {
-    class Bill
+    public class Bill
     {
-        public decimal total { get; set; }
+        // ReSharper disable once InconsistentNaming
+        public Decimal total { get; set; }
     }
 }

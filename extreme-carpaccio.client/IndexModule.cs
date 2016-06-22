@@ -15,23 +15,23 @@ namespace xCarpaccio.client
 
             Post["/order"] = _ =>
             {
-                using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
+                using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
                 {
                     Console.WriteLine("Order received: {0}", reader.ReadToEnd());
                 }
 
-                var order = this.Bind<Order>();
-                Bill bill = null;
-                //TODO: do something with order and return a bill if possible
-                // If you manage to get the result, return a Bill object (JSON serialization is done automagically)
-                // Else return a HTTP 404 error : return Negotiate.WithStatusCode(HttpStatusCode.NotFound);
-                
+                Order order = this.Bind<Order>();
+
+                BillCalculator billCalculator = new BillCalculator();
+
+                Bill bill = billCalculator.Calculate(order);
+
                 return bill;
             };
 
             Post["/feedback"] = _ =>
             {
-                var feedback = this.Bind<Feedback>();
+                Feedback feedback = this.Bind<Feedback>();
                 Console.Write("Type: {0}: ", feedback.Type);
                 Console.WriteLine(feedback.Content);
                 return Negotiate.WithStatusCode(HttpStatusCode.OK);

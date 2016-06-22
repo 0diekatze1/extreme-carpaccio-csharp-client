@@ -1,10 +1,12 @@
-﻿namespace xCarpaccio.client
+﻿using System;
+
+namespace xCarpaccio.client
 {
     public class Order
     {
-        public decimal[] Prices { get; set; }
-        public int[] Quantities { get; set; }
-        public string Country { get; set; }
-        public string Reduction { get; set; }
+        public Decimal[] Prices { get; set; }
+        public Int32[] Quantities { get; set; }
+        public String Country { get; set; }
+        public String Reduction { get; set; }
     }
 }
