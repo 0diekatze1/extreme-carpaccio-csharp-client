@@ -10,8 +10,7 @@ namespace xCarpaccio.client
     {
         public Bill Calculate(Order order)
         {
-            Country country = new Country {Code = order.Country};
-            country.TvaDecimal = Country.InitTva(country.Code);
+            Country country = Country.InitCountry(order.Country);
 
             return _calculate(country, order); ;
         }
@@ -21,7 +20,10 @@ namespace xCarpaccio.client
 
             if (validOrder(order))
             {
-                Decimal total = order.Prices.Select((t, i) => t*order.Quantities[i]).Sum();
+                Decimal total = 0;
+                total = order.Prices.Select((t, i) => t*order.Quantities[i]).Sum(); // PrixHT
+                total = total*country.TvaDecimal; //Prix TTC
+                total = total*country.Reduction.CalculateReduction(total); //reduc
                 Bill returnBill = new Bill {total = total};
 
                 return returnBill;

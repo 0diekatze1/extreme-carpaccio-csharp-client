@@ -9,18 +9,21 @@ namespace xCarpaccio.client
 
         public Decimal TvaDecimal;
 
-        public static Decimal InitTva(String code)
+        public IReduction Reduction;
+
+        public static Country InitCountry(String code)
         {
-            Decimal Tva = -1;
+            Country country = new Country();
             switch(code)
             {
                 case "DE":
-                    Tva = 20;
+                    country.TvaDecimal = 20;
+                    country.Reduction = new ReductionStandard();
                     break;
                 case null:
                     break;
             }
-            return Tva;
+            return country;
         }
     }
 }
