@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Xml.Schema;
-using Nancy.IO;
 
 namespace xCarpaccio.client
 {
@@ -10,6 +7,7 @@ namespace xCarpaccio.client
     {
         public Bill Calculate(Order order)
         {
+            if (order == null) return null;
             Country country = Country.InitCountry(order.Country, order);
             if (country != null) return _calculate(country, order);
              return null;
@@ -19,10 +17,9 @@ namespace xCarpaccio.client
         {
 
 
-            if (validOrder(order))
+            if (ValidOrder(order))
             {
-                Decimal total = 0;
-                total = order.Prices.Select((t, i) => t*order.Quantities[i]).Sum(); // PrixHT
+                Decimal total = order.Prices.Select((t, i) => t*order.Quantities[i]).Sum();
                 total += (total*country.TvaDecimal); //Prix TTC
                 total -= (total*country.Reduction.CalculateReduction(total)); //reduc
                 Bill returnBill = new Bill {total = total};
@@ -35,7 +32,7 @@ namespace xCarpaccio.client
             }      
         }
 
-        private Boolean validOrder(Order order)
+        private static Boolean ValidOrder(Order order)
         {
             return (order.Prices.Length == order.Quantities.Length);
         }

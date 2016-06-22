@@ -19,8 +19,16 @@ namespace xCarpaccio.client
                 {
                     Console.WriteLine("Order received: {0}", reader.ReadToEnd());
                 }
+                Order order = null;
 
-                Order order = this.Bind<Order>();
+                try
+                {
+                    Order order = this.Bind<Order>();
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
 
                 BillCalculator billCalculator = new BillCalculator();
 
