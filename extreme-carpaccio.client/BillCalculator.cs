@@ -22,8 +22,8 @@ namespace xCarpaccio.client
             {
                 Decimal total = 0;
                 total = order.Prices.Select((t, i) => t*order.Quantities[i]).Sum(); // PrixHT
-                total = total*country.TvaDecimal; //Prix TTC
-                total = total*country.Reduction.CalculateReduction(total); //reduc
+                total += (total*country.TvaDecimal); //Prix TTC
+                total -= (total*country.Reduction.CalculateReduction(total)); //reduc
                 Bill returnBill = new Bill {total = total};
 
                 return returnBill;

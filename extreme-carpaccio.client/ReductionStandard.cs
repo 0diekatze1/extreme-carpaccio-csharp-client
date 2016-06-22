@@ -8,7 +8,7 @@ namespace xCarpaccio.client
 {
     class ReductionStandard : IReduction
     {
-        public Decimal CalculateReduction(decimal totalDecimal)
+        public Decimal CalculateReduction(Decimal totalDecimal)
         {
             if(totalDecimal <= 1000)
             {

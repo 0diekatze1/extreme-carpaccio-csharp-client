@@ -17,7 +17,7 @@ namespace xCarpaccio.client
             switch(code)
             {
                 case "DE":
-                    country.TvaDecimal = 20;
+                    country.TvaDecimal = (Decimal) 0.20;
                     country.Reduction = new ReductionStandard();
                     break;
                 case null:

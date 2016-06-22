@@ -21,9 +21,14 @@ namespace extreme_carpaccio_tests
                 Quantities = new[] {1, 2},
                 Reduction = "STANDARD"
             };
+
+            Country country = Country.InitCountry("DE");
+            Assert.That(order.Prices.Select((t, i) => t * order.Quantities[i]).Sum(), Is.EqualTo(3));
+            Assert.That(country.Reduction.CalculateReduction(3), Is.EqualTo(0.03));
+
             Decimal total = billCalculator.Calculate(order).total;
             
-            Assert.That(total, Is.EqualTo((Decimal)2.91));
+            Assert.That(total, Is.EqualTo((Decimal)3.492));
 
 
 
