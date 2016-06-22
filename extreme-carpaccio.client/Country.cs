@@ -67,7 +67,86 @@ namespace xCarpaccio.client
                     country.TvaDecimal = (Decimal)0.19;
                     country.Reduction = calculateReduction(order, country);
                     break;
-
+                case "PT":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.23;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "HU":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.27;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "SE":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.23;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "AT":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.22;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "BG":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.21;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "DK":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.21;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "FI":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.17;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "SK":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.18;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "IE":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.21;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "LT":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.23;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "SI":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.24;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "LV":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.20;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "EE":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.22;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "CY":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.21;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "LU":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.25;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
+                case "MT":
+                    country = new Country();
+                    country.TvaDecimal = (Decimal)0.20;
+                    country.Reduction = calculateReduction(order, country);
+                    break;
                 case null:
                     return null;
                     break;
